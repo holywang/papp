@@ -6,6 +6,8 @@ import 'package:papp/framework/BasePage.dart';
 import 'package:papp/framework/BaseViewModel.dart';
 import 'package:papp/ui/page/SplashPage/SplashViewModel.dart';
 
+import '../../../main.dart';
+
 class SplashPage extends BasePage<SplashViewModel> {
   SplashPage();
 
@@ -16,11 +18,8 @@ class SplashPage extends BasePage<SplashViewModel> {
 }
 
 class _SplashState extends BasePageState<SplashViewModel> {
-
   @override
-  void initData() {
-
-  }
+  void initData() {}
 
   @override
   SplashViewModel initViewModel() {
@@ -29,7 +28,15 @@ class _SplashState extends BasePageState<SplashViewModel> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: viewModel.login()
+          ? const MyHomePage(title: 'Flutter Demo Home Page1')
+          : const MyHomePage(title: 'Flutter Demo Home Page2'),
+    );
   }
-
 }

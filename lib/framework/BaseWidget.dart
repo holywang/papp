@@ -31,7 +31,7 @@ abstract class BaseViewModelState<T extends StatefulWidget,
       ///此刻可以进行一些绑定操作
       initObserver();
       ///调用ViewModel的生命周期，此时可以进行一些初始化，比如网络请求等
-      // viewModel.onCreate();
+      viewModel.onCreate();
       ///Widget本身的一些数据初始化，比如参数之类的
       initData();
     });

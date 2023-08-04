@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:papp/framework/BaseViewModel.dart';
 import 'package:papp/framework/BaseWidget.dart';
-import 'package:provider/provider.dart';
 
 abstract class BasePage<T extends BaseViewModel> extends BaseWidget{
   const BasePage({Key? key}) : super(key: key);

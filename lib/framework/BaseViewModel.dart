@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:papp/framework/ViewState.dart';
 import 'error/FrameworkError.dart';
 
-class BaseViewModel extends ChangeNotifier {
+abstract class BaseViewModel extends ChangeNotifier {
   ViewState _state;
    ///是否被销毁
   bool _disposed = false;
@@ -52,6 +52,10 @@ class BaseViewModel extends ChangeNotifier {
       super.notifyListeners();
     }
   }
+
+  //尽量在onCreate方法中编写初始化逻辑
+  onCreate();
+
 
   @override
   void dispose() {
