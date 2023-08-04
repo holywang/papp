@@ -18,12 +18,18 @@ class SplashPage extends BasePage<SplashViewModel> {
 }
 
 class _SplashState extends BasePageState<SplashViewModel> {
-  @override
-  void initData() {}
+  bool ifLogin = false;
 
   @override
   SplashViewModel initViewModel() {
     return SplashViewModel();
+  }
+
+  @override
+  void initData() {
+    setState(() {
+      ifLogin = viewModel.login();
+    });
   }
 
   @override
@@ -34,7 +40,7 @@ class _SplashState extends BasePageState<SplashViewModel> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: viewModel.login()
+      home: ifLogin
           ? const MyHomePage(title: 'Flutter Demo Home Page1')
           : const MyHomePage(title: 'Flutter Demo Home Page2'),
     );

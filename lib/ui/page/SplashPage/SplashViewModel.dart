@@ -13,7 +13,7 @@ class SplashViewModel extends BaseViewModel{
   }
 
   login(){
-    return model.login();
+     model.login();
   }
 
 }
