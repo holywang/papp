@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+ // ignore_for_file: file_names
 
 import 'package:flutter/cupertino.dart';
 import 'BaseViewModel.dart';
@@ -26,7 +26,7 @@ abstract class BaseViewModelState<T extends StatefulWidget,
     super.initState();
     ///初始化ViewModel，并同步生命周期
     viewModel = initViewModel();
-    //延迟初始化,避免在initState中对context进行了操作，此时context可能为空
+    ///延迟初始化,避免在initState中对context进行了操作，此时context可能为空
     Future.delayed(Duration.zero).then((value) {
       ///此刻可以进行一些绑定操作
       initObserver();

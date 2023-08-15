@@ -3,7 +3,8 @@
 import 'package:dio/dio.dart';
 import 'package:papp/service/DioClient.dart';
 
-abstract class BaseService {
+class BaseService {
+
   DioClient createClient() {
     DioClient client = DioClient();
     client.getDio();

@@ -19,9 +19,9 @@ samples, guidance on mobile development, and a full API reference. -->
 
 # ProblemApp
 
-## 模块设计
-- Flutter部分模块设计详见[模块设计文档](./zDevelopmentDocumentation/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md)
 ## 命名规范
 - 详见[命名规范文档](./zDevelopmentDocumentation/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3.md)
 ## 日志设计
 - 详见[日志设计文档](./zDevelopmentDocumentation/%E6%97%A5%E5%BF%97%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md)
+## 详细设计
+- 详见[详细设计文档](./zDevelopmentDocumentation/%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md)

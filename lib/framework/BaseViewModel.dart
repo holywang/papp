@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:papp/framework/ViewState.dart';
-import 'error/FrameworkError.dart';
+import 'error/ViewStateError.dart';
 
 abstract class BaseViewModel extends ChangeNotifier {
   ViewState _state;
@@ -37,7 +37,7 @@ abstract class BaseViewModel extends ChangeNotifier {
   void setError(e, stackTrace, {String? message}) {
     StateErrorType errorType =
         FormatUtil.dioErrorFormat(e).errorType ?? StateErrorType.defaultError;
-    message = FormatUtil.dioErrorFormat(e).message ?? "出错鸟~~~";
+    message = FormatUtil.dioErrorFormat(e).message ?? "出错了";
     debugPrint(" errorType: $errorType, errorMsg: $message, errorInfo: ${e.toString()}");
     viewState = ViewState.error;
     _viewStateError = ViewStateError(
