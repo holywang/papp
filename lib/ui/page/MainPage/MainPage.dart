@@ -6,6 +6,7 @@ import 'package:papp/framework/BaseViewModel.dart';
 import 'MainViewModel.dart';
 
 class MainPage extends BasePage<MainViewModel>{
+  static const name = "/MainPage";
   @override
   BasePageState<BaseViewModel> createState() {
     return _MainState();
@@ -16,25 +17,30 @@ class MainPage extends BasePage<MainViewModel>{
 
 class _MainState extends BasePageState<MainViewModel>{
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
+      body: _body(),
+    );
+  }
+
+  _appBar() {
+    return AppBar(
+      title: Text("Main"),
+    );
+  }
+
+  _body() {
+    return Center(
+      child: Text("welcome to the main page"),
     );
   }
 
   @override
-  void initData() {
-    // TODO: implement initData
+  MainViewModel createViewModel() {
+    return MainViewModel();
   }
 
-  @override
-  MainViewModel initViewModel() {
-    // TODO: implement initViewModel
-    throw UnimplementedError();
-  }
-
-  _appBar() {
-    return Row(); }
 
 }
 

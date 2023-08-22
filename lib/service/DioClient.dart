@@ -9,7 +9,7 @@ class DioClient {
 
   Dio? getDio() {
     _dio ??= Dio(BaseOptions(
-      baseUrl: "https://example.com/api",
+      baseUrl: "https://www.baidu.com/",
       // connectTimeout: 5000,
       // receiveTimeout: 3000,
     ));

@@ -6,10 +6,3 @@ enum ViewState {
   empty, //返回空值
   busy, //繁忙的
 }
-
-enum StateErrorType {
-  defaultError,
-  networkTimeoutError, //网络错误
-  unauthorizedError, //授权错误
-  responseException, //响应异常
-}

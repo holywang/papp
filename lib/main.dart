@@ -13,10 +13,7 @@ void main() {
   runApp(const MyApp());
 }
 
-var routes = PappRouter().routes;
-
 class MyApp extends StatelessWidget {
-
 
   const MyApp({super.key});
 
@@ -28,7 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        routes:routes,
+        routes:PappRouter.routes,
         home: SplashPage()
     );
   }

@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/services.dart';
 
-class ThirdPartyLoginNative{
+class ThirdPartyLoginAndroidNative{
   static const MethodChannel platform = MethodChannel('com.invexer.papp/third_party_login');
   static const BasicMessageChannel basicMessageChannel = BasicMessageChannel('flutter_demo_jiaohu.flutter.io/basic_message_channel', StandardMessageCodec());
   static const EventChannel eventChannel = EventChannel('flutter_demo_jiaohu.flutter.io/event_channel');

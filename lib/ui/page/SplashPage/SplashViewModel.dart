@@ -7,13 +7,23 @@ import 'package:papp/ui/page/SplashPage/SplashModel.dart';
 class SplashViewModel extends BaseViewModel{
   late SplashModel model;
 
+  bool ifLogin = false;
+
+  var youName = "你的名字";
+
   @override
   onCreate() {
     model = SplashModel();
   }
 
   login(){
-     model.login();
+     return model.login();
+  }
+
+  changeYourName() {
+    print(youName);
+    youName = "王阿吉";
+    notifyListeners();
   }
 
 }

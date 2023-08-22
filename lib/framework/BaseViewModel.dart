@@ -2,18 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:papp/framework/ViewState.dart';
-import 'error/ViewStateError.dart';
 
-abstract class BaseViewModel extends ChangeNotifier {
+abstract class BaseViewModel extends ChangeNotifier{
   ViewState _state;
    ///是否被销毁
   bool _disposed = false;
-  ViewStateError? _viewStateError;
 
   BaseViewModel({ViewState? state}) : _state = state ?? ViewState.busy;
 
   ViewState get viewState => _state;
-  ViewStateError? get viewStateError => _viewStateError;
 
   set viewState(ViewState state) {
     // _viewStateError = null;
@@ -35,13 +32,7 @@ abstract class BaseViewModel extends ChangeNotifier {
   void setEmpty() => viewState = ViewState.empty;
   //设置出错状态(主要是由Dio 接口返回的DioErrorType)
   void setError(e, stackTrace, {String? message}) {
-    StateErrorType errorType =
-        FormatUtil.dioErrorFormat(e).errorType ?? StateErrorType.defaultError;
-    message = FormatUtil.dioErrorFormat(e).message ?? "出错了";
-    debugPrint(" errorType: $errorType, errorMsg: $message, errorInfo: ${e.toString()}");
     viewState = ViewState.error;
-    _viewStateError = ViewStateError(
-        errorType: errorType, errorMsg: message, errorInfo: e.toString());
   }
   //设置繁忙状态
   void setBusy() => viewState = ViewState.busy;
@@ -62,8 +53,4 @@ abstract class BaseViewModel extends ChangeNotifier {
     _disposed = true;
     super.dispose();
   }
-}
-
-class FormatUtil {
-  static dioErrorFormat(e) {}
 }

@@ -4,12 +4,13 @@
 import 'package:flutter/material.dart';
 import 'package:papp/framework/BasePage.dart';
 import 'package:papp/framework/BaseViewModel.dart';
-import 'package:papp/ui/page/PappRouter.dart';
 import 'package:papp/ui/page/SplashPage/SplashViewModel.dart';
+import 'package:provider/provider.dart';
 
-import '../../../main.dart';
+import '../MainPage/MainPage.dart';
 
 class SplashPage extends BasePage<SplashViewModel> {
+  static const name = "/SplashPage";
   SplashPage();
 
   @override
@@ -19,23 +20,13 @@ class SplashPage extends BasePage<SplashViewModel> {
 }
 
 class _SplashState extends BasePageState<SplashViewModel> {
-  bool ifLogin = false;
-  var youName = "你的名字";
-
   @override
-  SplashViewModel initViewModel() {
+  SplashViewModel createViewModel() {
     return SplashViewModel();
   }
 
   @override
-  void initData() {
-    setState(() {
-      ifLogin = viewModel.login();
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
       body: _body(),
@@ -50,13 +41,21 @@ class _SplashState extends BasePageState<SplashViewModel> {
   }
 
   _body() {
-    return Center(
-        child: Text("you send is $youName"),
-    );
+    return Consumer<SplashViewModel>(builder: (context, model, child) {
+      return Text('you send is ${model.youName}');
+    });
   }
 
   _floatingBtn() {
-    return FloatingActionButton(onPressed: () => {Navigator.of(context).pushNamed("/main")});
-
+    return FloatingActionButton(
+      child: Icon(Icons.add),
+      onPressed: () {
+        if (viewModel.youName == "王阿吉") {
+          pushName(MainPage.name);
+          // push(MainPage());
+        }
+        viewModel.changeYourName();
+      },
+    );
   }
 }

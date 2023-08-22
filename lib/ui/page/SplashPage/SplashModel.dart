@@ -7,8 +7,6 @@ import '../../../service/UserService.dart';
 class SplashModel {
 
   login() {
-      LoginBean data = UserService().SD_001("email", "pwd");
-    
-    
+      return UserService().SD_001("email", "pwd");
   }
 }

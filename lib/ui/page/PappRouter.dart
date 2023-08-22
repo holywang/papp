@@ -7,9 +7,9 @@ import 'package:papp/ui/page/SplashPage/SplashPage.dart';
 
 class PappRouter {
 
-  Map<String, Widget Function(BuildContext)> routes = {
-    "/splash": (context) => SplashPage(),
-    "/main": (context) => MainPage(),
+  static Map<String, Widget Function(BuildContext)> routes = {
+    SplashPage.name: (context) => SplashPage(),
+    MainPage.name: (context) => MainPage(),
   };
 
 }

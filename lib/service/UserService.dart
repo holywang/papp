@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables
 
 import 'package:papp/framework/FrameworkError.dart';
 import 'package:papp/service/Api.dart';
@@ -16,8 +16,9 @@ class UserService extends BaseService {
   SD_001(String email, String pwd) {
     final params = {'email': email, 'pwd': pwd};
     ResponseBean<LoginBean>? resp;
+    // var resp;
     try {
-      resp = createClient().post(Api.SD_001, params) as ResponseBean<LoginBean>?;
+      resp = createClient().get(Api.SD_001, params) as ResponseBean<LoginBean>?;
       DealErrorFactory.dealErrorWithErrorCode(resp?.respCode);
     } on FrameworkError catch (error) {
       DealErrorFactory.dealErrorWithFrameworkError(error);

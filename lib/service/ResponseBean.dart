@@ -2,14 +2,15 @@
 
 class ResponseBean<T> {
   T? data;
-  List<T>? listData;
+  // List<T>? listData;
   int? respCode;
   String? respMsg;
-  ListPage<T>? listPageData;
+  // ListPage<T>? listPageData;
 
   fromJson(dynamic json) {
     respCode = json['respCode'];
     respMsg = json['respMsg'];
+    data = json['data'];
   }
 }
 
